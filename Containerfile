@@ -22,6 +22,4 @@ RUN adduser --no-create-home app
 RUN chown -R app:app /app
 USER app
 
-EXPOSE 8000
-
 CMD [ "/app/rust-website" ]
