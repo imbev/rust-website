@@ -1,0 +1,4 @@
+Containerfile
+compose.yaml
+target
+.env

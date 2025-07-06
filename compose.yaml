@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:17
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+
+  app:
+    build:
+      dockerfile: Containerfile
+    ports:
+      - 8000:80
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+      - APP_HOST=0.0.0.0
+      - APP_PORT=80

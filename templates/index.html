@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block main %}
+<h2>Posts</h2>
+<ul>
+    {% for post in posts %}
+    <li>
+        <span><strong>{{ post.title }}</strong></span>
+        <br />
+        <span>{{ post.content }}</span>
+        <br />
+        <a href="/posts/{{ post.id }}/delete">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
