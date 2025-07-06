@@ -7,6 +7,8 @@
         <br />
         <span>{{ post.content }}</span>
         <br />
+        <a href="/posts/{{ post.id }}/edit">Edit</a>
+        &nbsp;
         <a href="/posts/{{ post.id }}/delete">Delete</a>
     </li>
     {% endfor %}

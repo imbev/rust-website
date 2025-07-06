@@ -12,6 +12,7 @@ use tokio::net::TcpListener;
 use tower_http::services::ServeDir;
 
 use crate::routes::delete_post::delete_post_endpoint;
+use crate::routes::edit_post::{edit_post_endpoint, edit_post_page};
 use crate::routes::index::index_page;
 use crate::routes::new_post::{new_post_endpoint, new_post_page};
 
@@ -39,6 +40,8 @@ async fn main() {
         .route("/new_post", get(new_post_page))
         .route("/posts", post(new_post_endpoint))
         .route("/posts/{post_id}/delete", get(delete_post_endpoint))
+        .route("/posts/{post_id}/edit", get(edit_post_page))
+        .route("/edit_post", post(edit_post_endpoint))
         .nest_service("/static", ServeDir::new("static"))
         .with_state(state);
 
